@@ -1,0 +1,79 @@
+{
+  "title": "Unlocking YouTube Automation and Monetization",
+  "subtitle": "Maximize Your Earnings with Effortless Video Management",
+  "topic": "YouTube automation and monetization",
+  "difficulty": "intermediate",
+  "price": 29.99,
+  "intro_video_script": "Are you tired of wasting hours on YouTube video management? With our course, learn how to automate your videos and unlock a new world of passive income.",
+  "modules": [
+    {
+      "title": "Module 1: Setting Up Your YouTube Channel for Success",
+      "lessons": [
+        {
+          "title": "Lesson 1.1: Understanding Your YouTube Audience",
+          "content": "Identify your niche and target audience to create content that resonates with them. Use tools like TubeBuddy or VidIQ to analyze your viewers' behavior.",
+          "duration_minutes": 10
+        },
+        {
+          "title": "Lesson 1.2: Optimizing Your Video Titles, Tags, and Descriptions",
+          "content": "Craft attention-grabbing titles, tags, and descriptions that help your videos rank higher in search results. Learn how to use keywords strategically.",
+          "duration_minutes": 8
+        },
+        {
+          "title": "Lesson 1.3: Creating a Consistent Branding Strategy",
+          "content": "Develop a unique visual identity for your channel through consistent branding, such as logos, color schemes, and typography. Invest in high-quality graphics.",
+          "duration_minutes": 12
+        }
+      ]
+    },
+    {
+      "title": "Module 2: Video Automation with Scripts and Templates",
+      "lessons": [
+        {
+          "title": "Lesson 2.1: Understanding YouTube Script Templates",
+          "content": "Learn how to use pre-made script templates to save time on video writing and editing. Use tools like TubeBuddy's script editor or VidIQ's video script generator.",
+          "duration_minutes": 10
+        },
+        {
+          "title": "Lesson 2.2: Creating Custom YouTube Automation Scripts",
+          "content": "Develop your own custom scripts using Google Apps Script or Python to automate tasks, such as video uploads and scheduling.",
+          "duration_minutes": 12
+        },
+        {
+          "title": "Lesson 2.3: Using Video Templates for Consistency",
+          "content": "Use pre-made video templates to maintain consistency in your videos' style, graphics, and editing. Learn how to customize them with ease.",
+          "duration_minutes": 8
+        }
+      ]
+    },
+    {
+      "title": "Module 3: Monetizing Your YouTube Channel",
+      "lessons": [
+        {
+          "title": "Lesson 3.1: Understanding AdSense and Display Ads",
+          "content": "Learn how to set up AdSense on your channel and understand the display ad formats available to you. Optimize your ads for maximum earnings.",
+          "duration_minutes": 12
+        },
+        {
+          "title": "Lesson 3.2: Exploring Affiliate Marketing Opportunities",
+          "content": "Discover affiliate marketing strategies that work well for YouTubers, such as promoting products through video reviews or tutorials.",
+          "duration_minutes": 10
+        },
+        {
+          "title": "Lesson 3.3: Leveraging Super Chat and Memberships",
+          "content": "Understand how to use Super Chat and memberships to engage with your audience and increase earnings per view.",
+          "duration_minutes": 8
+        }
+      ]
+    }
+  ],
+  "key_takeaways": [
+    "Automate your YouTube video management for more free time",
+    "Create high-performing video titles, tags, and descriptions that drive views",
+    "Unlock a new world of passive income through AdSense, affiliate marketing, and memberships"
+  ],
+  "target_audience": "YouTubers looking to increase earnings and efficiency with their video content",
+  "generated_at": "2026-05-23T19:46:24.306187",
+  "id": "20260523_194624_unlocking_youtube_automation_and_monetiz",
+  "created_at": "2026-05-23T19:46:24.306299"
+}

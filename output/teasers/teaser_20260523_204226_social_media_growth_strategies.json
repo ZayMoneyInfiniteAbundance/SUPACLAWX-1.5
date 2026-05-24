@@ -1,0 +1,19 @@
+{
+  "title": "Social Media Growth Strategies",
+  "subtitle": "Unlock the Secrets to Growing Your Online Presence",
+  "price": 19.99,
+  "free_lessons": [
+    {
+      "title": "Lesson 1.1: Defining Your Target Audience",
+      "content": "Identify your ideal customer to create content that resonates with them. Analyze your competitors and understand their strengths and weaknesses...."
+    }
+  ],
+  "locked_lessons_count": 7,
+  "total_modules": 3,
+  "total_lessons": 8,
+  "blur_radius": 15,
+  "call_to_action": "Unlock full course for $19.99",
+  "generated_at": "2026-05-23T21:30:45.894084",
+  "course_id": "20260523_204226_social_media_growth_strategies",
+  "created_at": "2026-05-23T21:30:45.894312"
+}

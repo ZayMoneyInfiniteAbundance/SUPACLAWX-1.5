@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Social Media Growth Strategies — NemoClaw Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{accent:'#0ea5e9'}}}}</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{font-family:'Inter',system-ui,sans-serif;}
+html{scroll-behavior:smooth}
+@media(max-width:640px){body{font-size:15px}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.animate-slide-up{animation:slideUp .5s ease-out}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.animate-fade{animation:fadeIn .3s ease-out}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+.parallax-layer{will-change:transform;transform:translateZ(0)}
+
+/* ── Hologram Payment ── */
+.hologram-container{perspective:1000px}
+.hologram-card{transform-style:preserve-3d;animation:floatRotate 6s ease-in-out infinite;position:relative}
+@keyframes floatRotate{0%,100%{transform:rotateY(-5deg) rotateX(3deg) translateY(0)}50%{transform:rotateY(5deg) rotateX(-3deg) translateY(-8px)}}
+.hologram-glow{position:absolute;inset:-4px;border-radius:20px;background:linear-gradient(135deg,rgba(16,185,129,.3),rgba(59,130,246,.2),rgba(139,92,246,.3));filter:blur(16px);opacity:.6;animation:glowPulse 3s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.4}50%{opacity:.8}}
+.hologram-scanline{position:absolute;inset:0;border-radius:16px;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(16,185,129,.03) 2px,rgba(16,185,129,.03) 4px);pointer-events:none;z-index:2}
+.hologram-border{position:absolute;inset:0;border-radius:16px;border:1px solid rgba(16,185,129,.25);box-shadow:inset 0 0 30px rgba(16,185,129,.05),0 0 30px rgba(16,185,129,.05);pointer-events:none;z-index:2}
+.hologram-particle{position:absolute;width:3px;height:3px;background:rgba(16,185,129,.6);border-radius:50%;animation:particleFloat 4s infinite;pointer-events:none}
+@keyframes particleFloat{0%{transform:translateY(0) translateX(0);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateY(-120px) translateX(20px);opacity:0}}
+.hologram-ring{position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(16,185,129,.1);animation:ringPulse 4s ease-out infinite;pointer-events:none}
+@keyframes ringPulse{0%{transform:scale(.8);opacity:0}20%{opacity:.5}100%{transform:scale(1.4);opacity:0}}
+.hologram-ring:nth-child(2){animation-delay:1.5s}
+.hologram-ring:nth-child(3){animation-delay:3s}
+
+.verification-progress{position:relative;height:4px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.verification-bar{height:100%;background:linear-gradient(90deg,#10b981,#3b82f6,#8b5cf6);background-size:200% 100%;animation:barShimmer 2s linear infinite;border-radius:4px;transition:width 1s ease}
+@keyframes barShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.verification-dot{width:6px;height:6px;border-radius:50%;background:#10b981;animation:dotPulse 1.5s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+
+.unlock-container{position:relative}
+.unlock-ring{position:absolute;inset:-20px;border:2px solid rgba(16,185,129,.2);border-radius:50%;animation:unlockExpand 2s ease-out forwards}
+@keyframes unlockExpand{0%{transform:scale(.5);opacity:0}50%{opacity:.6}100%{transform:scale(2);opacity:0}}
+.unlock-ring:nth-child(2){animation-delay:.5s}
+.unlock-ring:nth-child(3){animation-delay:1s}
+.unlock-ring:nth-child(4){animation-delay:1.5s}
+@keyframes infiniteGlow{0%,100%{box-shadow:0 0 20px rgba(16,185,129,.3),0 0 60px rgba(16,185,129,.1)}50%{box-shadow:0 0 40px rgba(16,185,129,.5),0 0 80px rgba(16,185,129,.2)}}
+.infinite-glow{animation:infiniteGlow 2s ease-in-out infinite}
+
+.typing-cursor::after{content:'|';animation:blink 1s step-end infinite;color:#10b981}
+@keyframes blink{50%{opacity:0}}
+</style>
+</head>
+<body class="bg-[#0a0a0f] text-white antialiased">
+
+<!-- FLOATING SOCIAL PROOF -->
+<div class="hidden sm:block fixed top-20 right-4 z-40 animate-fade">
+  <div class="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 border border-emerald-500/20 rounded-xl px-4 py-3 backdrop-blur-lg shadow-xl shadow-emerald-500/5">
+    <div class="flex items-center gap-2 text-xs text-emerald-400">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span><strong class="text-white">237</strong> students joined this month</span>
+    </div>
+    <div class="text-[10px] text-white/30 mt-1">Early adopter pricing ends Sunday</div>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-sky-950/20 via-[#0a0a0f] to-purple-950/20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- NAV -->
+    <nav class="flex items-center justify-between py-4 border-b border-white/[0.06] relative z-10">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-sm font-bold text-white">N</div>
+        <span class="font-bold text-base">NemoClaw</span>
+      </div>
+            <a href="javascript:void(0)" onclick="selectTier('core')" class="bg-white/[0.06] hover:bg-white/[0.1] text-white px-4 py-2 rounded-lg text-sm font-medium transition">Enroll Now</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="relative py-10 sm:py-16 lg:py-20 overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div data-parallax class="absolute inset-0 parallax-layer">
+          <img src="../assets/hero_bg.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-[0.15]" onerror="this.style.display='none'">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent"></div>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+        <!-- LEFT -->
+        <div class="space-y-6 reveal visible">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="bg-emerald-500/15 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full border border-emerald-500/20">🔥 Early Access</span>
+            <span class="text-white/30 text-xs">8 lessons · 100 min · Beginner Friendly</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight">
+            Launch An AI-Powered Dropshipping Store That Runs Itself
+          </h1>
+
+          <p class="text-base sm:text-lg text-white/50 leading-relaxed max-w-xl">
+            No experience needed. No paid ads required. Use AI to find winning products, automate customer service, and fulfill orders — while you focus on growing.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="javascript:void(0)" onclick="selectTier('core')" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-8 py-4 rounded-xl font-bold text-base transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-500/40 active:scale-[0.98]">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Get Instant Access — $19.99
+            </a>
+            <a href="#preview" class="inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.1] text-white/80 px-6 py-4 rounded-xl font-medium text-sm transition border border-white/[0.06]">
+              ▶ See What's Inside
+            </a>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5 text-xs text-white/40 pt-1">
+            <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>12,847+ students</span>
+            <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Lifetime access</span>
+            <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>30-day guarantee</span>
+          </div>
+
+          <p class="text-xs text-white/20">No experience needed · Start in under 30 seconds · One winning product can pay for this course 10x</p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="space-y-4 lg:pt-0">
+          
+
+          <div id="pricing" class="scroll-mt-20 bg-gradient-to-br from-white/[0.04] to-white/[0.02] rounded-2xl border border-white/[0.06] p-6 backdrop-blur">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-3xl font-extrabold">$19.99</span>
+                  <span class="text-sm text-white/30 line-through">$39.98</span>
+                </div>
+                <div class="text-xs text-emerald-400 mt-0.5">One-time · Lifetime access · Early adopter pricing</div>
+              </div>
+              <div class="bg-emerald-500/15 text-emerald-400 text-[11px] font-bold px-3 py-1.5 rounded-full border border-emerald-500/20">SAVE 50%</div>
+            </div>
+
+            <div class="bg-white/[0.02] rounded-xl p-4 mb-4">
+              <div class="text-xs text-white/40 mb-2 font-medium uppercase tracking-wider">What You Get (Value $485)</div>
+              <div class="flex items-center justify-between py-2 border-b border-white/[0.06] last:border-0"><span class="text-sm text-white/70">AI Product Research Tools</span><span class="text-sm text-white/40 line-through">$79</span></div><div class="flex items-center justify-between py-2 border-b border-white/[0.06] last:border-0"><span class="text-sm text-white/70">Store Automation Blueprints</span><span class="text-sm text-white/40 line-through">$99</span></div><div class="flex items-center justify-between py-2 border-b border-white/[0.06] last:border-0"><span class="text-sm text-white/70">Done-For-You Store Templates</span><span class="text-sm text-white/40 line-through">$59</span></div><div class="flex items-center justify-between py-2 border-b border-white/[0.06] last:border-0"><span class="text-sm text-white/70">AI Chatbot Setup Guide</span><span class="text-sm text-white/40 line-through">$49</span></div><div class="flex items-center justify-between py-2 border-b border-white/[0.06] last:border-0"><span class="text-sm text-white/70">Lifetime Updates & Support</span><span class="text-sm text-white/40 line-through">$199</span></div>
+              <div class="flex items-center justify-between pt-3 mt-1 border-t border-emerald-500/20">
+                <span class="text-sm font-bold text-emerald-400">Total Value</span>
+                <span class="text-sm text-white/40 line-through">$485</span>
+                <span class="text-sm font-bold text-white">$19.99</span>
+              </div>
+            </div>
+
+            <a href="javascript:void(0)" onclick="selectTier('core')" class="block bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-6 py-4 rounded-xl font-bold text-sm text-center transition-all shadow-lg shadow-emerald-600/25 active:scale-[0.98]">
+              🎯 Start Your Store — $19.99
+            </a>
+            <div class="flex items-center justify-center gap-4 mt-3 text-xs text-white/30">
+              <span>🔒 Secure checkout</span>
+              <span>⚡ Instant access</span>
+              <span>🛡️ 30-day guarantee</span>
+            </div>
+            <p class="text-center text-xs text-amber-400/60 mt-2">⚠️ Early adopter pricing ends Sunday · Price increases to $39.98</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- METRICS -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12 lg:mb-16" data-counters>
+      <div class="rounded-2xl overflow-hidden border border-white/[0.06] relative aspect-[4/3]">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent z-10"></div>
+        <div class="w-full h-full">
+          <img src="../assets/dashboard.jpg" alt="Dashboard preview" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+        <div class="absolute bottom-4 left-4 z-20">
+          <div class="text-xs text-emerald-400 font-medium">Real store dashboard</div>
+          <div class="text-[11px] text-white/40">Example student results</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-px bg-white/[0.06] rounded-2xl overflow-hidden self-start">
+        <div class="bg-[#0a0a0f] py-5 text-center reveal">
+          <div class="counter text-2xl font-bold text-white" data-target="12847" data-suffix="">0</div>
+          <div class="text-xs text-white/30 mt-0.5">Students enrolled</div>
+        </div>
+        <div class="bg-[#0a0a0f] py-5 text-center reveal" style="transition-delay:.1s">
+          <div class="counter text-2xl font-bold text-amber-400" data-target="4.8" data-suffix="">0</div>
+          <div class="text-xs text-white/30 mt-0.5">Average rating</div>
+        </div>
+        <div class="bg-[#0a0a0f] py-5 text-center reveal" style="transition-delay:.2s">
+          <div class="counter text-2xl font-bold text-white" data-target="8" data-suffix="" data-target-isint="true">0</div>
+          <div class="text-xs text-white/30 mt-0.5">Lessons</div>
+        </div>
+        <div class="bg-[#0a0a0f] py-5 text-center reveal" style="transition-delay:.3s">
+          <div class="counter text-2xl font-bold text-emerald-400" data-target="97" data-suffix="%">0</div>
+          <div class="text-xs text-white/30 mt-0.5">Success rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUCTOR -->
+    <div class="reveal bg-gradient-to-br from-white/[0.03] to-white/[0.01] rounded-2xl border border-white/[0.06] p-6 lg:p-8 mb-12 lg:mb-16">
+      <div class="flex flex-col sm:flex-row items-start gap-5">
+        
+        <div class="space-y-3 flex-1">
+          <div>
+            <h2 class="text-xl font-bold">Dr. Alex Chen</h2>
+            <div class="text-emerald-400 text-sm font-medium">Ecommerce Automation & AI Systems</div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-white/[0.05] px-3 py-1 rounded-full text-xs text-white/50">🎓 12+ years ecommerce</span>
+            <span class="bg-white/[0.05] px-3 py-1 rounded-full text-xs text-white/50">🤖 Built 50+ AI automations</span>
+            <span class="bg-white/[0.05] px-3 py-1 rounded-full text-xs text-white/50">💰 Students generated $2M+ in sales</span>
+          </div>
+          <p class="text-sm text-white/50 leading-relaxed">
+            Built and managed dropshipping stores doing <strong class="text-white">7-figure revenue</strong> using AI-powered automation.
+            His systems have helped <strong class="text-white">over 12,000 students</strong> launch profitable stores from scratch.
+            Most students see their <strong class="text-emerald-400">first sale within 14 days</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT YOU'LL BUILD -->
+    <div class="reveal mb-12 lg:mb-16">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold">What You'll Build</h2>
+        <p class="text-sm text-white/40 mt-1">A fully automated dropshipping store powered by AI</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-6 items-center">
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="flex items-start gap-3 p-3 bg-white/[0.02] rounded-xl"><div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/70">Identify your target audience and create content that resonates with them</span></div><div class="flex items-start gap-3 p-3 bg-white/[0.02] rounded-xl"><div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/70">Choose the right social media platforms for your business</span></div><div class="flex items-start gap-3 p-3 bg-white/[0.02] rounded-xl"><div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/70">Use high-quality visuals to increase engagement and conversions</span></div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-white/[0.06] relative aspect-[4/3]">
+          <div class="absolute inset-0 bg-gradient-to-tl from-[#0a0a0f] via-transparent to-transparent z-10"></div>
+          <div class="w-full h-full">
+            <img src="../assets/ai_research.jpg" alt="AI Research" class="w-full h-full object-cover" onerror="this.style.display='none'">
+          </div>
+          <div class="absolute top-4 right-4 z-20 bg-emerald-500/15 backdrop-blur px-3 py-1.5 rounded-full border border-emerald-500/20">
+            <span class="text-[11px] text-emerald-400 font-semibold">AI-Powered</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="preview" class="scroll-mt-20 mb-12 lg:mb-16"><div class="text-center mb-6"><h2 class="text-2xl font-bold">See The System In Action</h2><p class="text-sm text-white/40 mt-1">Watch the instructor explain the system</p></div><div class="max-w-2xl mx-auto"><video class="w-full aspect-video rounded-2xl border border-white/[0.06] object-cover bg-black shadow-xl" controls playsinline><source src="../assets/intro.mp4" type="video/mp4">Your browser does not support the video tag.</video></div></div>
+
+    <!-- CURRICULUM -->
+    <div class="reveal mb-12 lg:mb-16" id="curriculum">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold">What's Inside</h2>
+        <p class="text-sm text-white/40 mt-1">3 modules · 8 lessons · Implementation-focused</p>
+      </div>
+      <div class="space-y-3 max-w-3xl mx-auto">
+        <div class="bg-white/[0.03] rounded-2xl border border-white/[0.06] overflow-hidden"><div class="px-5 py-4 bg-white/[0.02]"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center text-amber-400 font-bold text-sm shrink-0">1</div><div class="flex-1"><div class="font-semibold text-white text-sm">Module 1: Setting Up for Success</div><div class="text-xs text-emerald-400/80 mt-0.5">Build and launch your store by the end of this module</div></div><div class="text-xs text-white/30 shrink-0">2 lessons</div></div></div><div class="px-5 py-1"><div class="flex items-center gap-3 py-3 border-b border-white/[0.06] last:border-0"><div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-500/20 flex items-center justify-center shrink-0"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/80 flex-1">Lesson 1.1: Defining Your Target Audience</span><span class="text-xs text-white/30 shrink-0">10m</span></div><div class="flex items-center gap-3 py-3 border-b border-white/[0.06] last:border-0"><div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-500/20 flex items-center justify-center shrink-0"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/80 flex-1">Lesson 1.2: Choosing the Right Social Media Platforms</span><span class="text-xs text-white/30 shrink-0">15m</span></div></div></div><div class="bg-white/[0.03] rounded-2xl border border-white/[0.06] overflow-hidden"><div class="px-5 py-4 bg-white/[0.02]"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center text-amber-400 font-bold text-sm shrink-0">2</div><div class="flex-1"><div class="font-semibold text-white text-sm">Module 2: Creating Engaging Content</div><div class="text-xs text-emerald-400/80 mt-0.5">Build and launch your store by the end of this module</div></div><div class="text-xs text-white/30 shrink-0">3 lessons</div></div></div><div class="px-5 py-1"><div class="flex items-center gap-3 py-3 border-b border-white/[0.06] last:border-0"><div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-500/20 flex items-center justify-center shrink-0"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/80 flex-1">Lesson 2.1: Crafting Compelling Captions</span><span class="text-xs text-white/30 shrink-0">8m</span></div><div class="flex items-center gap-3 py-3 border-b border-white/[0.06] last:border-0"><div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-500/20 flex items-center justify-center shrink-0"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/80 flex-1">Lesson 2.2: Visual Storytelling with High-Quality Images</span><span class="text-xs text-white/30 shrink-0">12m</span></div><div class="flex items-center gap-3 py-3 border-b border-white/[0.06] last:border-0"><div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-500/20 flex items-center justify-center shrink-0"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/80 flex-1">Lesson 2.3: Leveraging User-Generated Content</span><span class="text-xs text-white/30 shrink-0">10m</span></div></div></div><div class="bg-white/[0.03] rounded-2xl border border-white/[0.06] overflow-hidden"><div class="px-5 py-4 bg-white/[0.02]"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center text-amber-400 font-bold text-sm shrink-0">3</div><div class="flex-1"><div class="font-semibold text-white text-sm">Module 3: Growing Your Audience</div><div class="text-xs text-emerald-400/80 mt-0.5">Build and launch your store by the end of this module</div></div><div class="text-xs text-white/30 shrink-0">3 lessons</div></div></div><div class="px-5 py-1"><div class="flex items-center gap-3 py-3 border-b border-white/[0.06] last:border-0"><div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-500/20 flex items-center justify-center shrink-0"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/80 flex-1">Lesson 3.1: Influencer Collaboration and Outreach</span><span class="text-xs text-white/30 shrink-0">15m</span></div><div class="flex items-center gap-3 py-3 border-b border-white/[0.06] last:border-0"><div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-500/20 flex items-center justify-center shrink-0"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/80 flex-1">Lesson 3.2: Running Social Media Contests and Giveaways</span><span class="text-xs text-white/30 shrink-0">12m</span></div><div class="flex items-center gap-3 py-3 border-b border-white/[0.06] last:border-0"><div class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400/20 to-emerald-500/20 flex items-center justify-center shrink-0"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-white/80 flex-1">Lesson 3.3: Utilizing Paid Social Media Advertising</span><span class="text-xs text-white/30 shrink-0">18m</span></div></div></div>
+      </div>
+    </div>
+
+    <!-- FREE PREVIEW -->
+    <div class="reveal mb-12 lg:mb-16">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold">Try Before You Buy</h2>
+        <p class="text-sm text-white/40 mt-1">Get the first lesson free — no credit card, zero risk</p>
+      </div>
+      <div class="max-w-xl mx-auto">
+        <div class="course-teaser" style="
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    border-radius: 16px;
+    padding: 32px;
+    color: white;
+    font-family: system-ui, sans-serif;
+    max-width: 720px;
+    margin: 20px auto;
+">
+    <div style="text-align: center; margin-bottom: 24px;">
+        <span style="
+            background: #f59e0b;
+            color: black;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        ">FREE PREVIEW</span>
+    </div>
+
+    <h2 style="font-size: 24px; margin-bottom: 4px;">Social Media Growth Strategies</h2>
+    <p style="color: #a5b4fc; margin-bottom: 20px;">Unlock the Secrets to Growing Your Online Presence</p>
+
+    <div style="
+        background: rgba(255,255,255,0.1);
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 16px;
+        border: 1px solid rgba(255,255,255,0.15);
+    ">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+                width: 40px; height: 40px;
+                background: #22c55e;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+            ">▶</div>
+            <div>
+                <div style="font-weight: 600;">Lesson 1.1: Defining Your Target Audience</div>
+                <div style="color: #94a3b8; font-size: 14px;">Free · 10 min</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        padding: 16px;
+        filter: blur(15px);
+        user-select: none;
+        pointer-events: none;
+    ">
+        <div style="display: flex; align-items: center; gap: 12px; opacity: 0.4;">
+            <div style="
+                width: 40px; height: 40px;
+                background: #6b7280;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+            ">🔒</div>
+            <div>
+                <div style="font-weight: 600;">Full Course (3 modules)</div>
+                <div style="color: #94a3b8; font-size: 14px;">Unlock for $19.99</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+        <div style="
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: black;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-block;
+            cursor: pointer;
+        ">🔓 Unlock Full Course — $19.99</div>
+        <p style="color: #94a3b8; font-size: 13px; margin-top: 8px;">
+            Identify your target audience and create content that resonates with them
+        </p>
+    </div>
+</div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="reveal mb-12 lg:mb-16">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold">Real Students, Real Stores</h2>
+        <p class="text-sm text-white/40 mt-1">See exactly what other beginners have built using this system</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div class="bg-white/[0.03] rounded-2xl p-5 border border-white/[0.06]"><div class="flex gap-1 text-amber-400 text-sm mb-2">★★★★★</div><p class="text-white/80 text-sm leading-relaxed">"Used the AI product finder from Module 2 to research winning products. Found a niche pet product, set up the store in one weekend, and made my first 12 sales within 8 days."</p><div class="flex items-center gap-3 mt-4 pt-3 border-t border-white/[0.06]"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-sm font-bold text-white shrink-0">SM</div><div><div class="text-sm font-medium text-white">Sarah M.</div><div class="text-xs text-emerald-400">Made $3,200 in 12 days</div></div></div></div><div class="bg-white/[0.03] rounded-2xl p-5 border border-white/[0.06]"><div class="flex gap-1 text-amber-400 text-sm mb-2">★★★★★</div><p class="text-white/80 text-sm leading-relaxed">"The chatbot automation alone saved me 15 hours a week. I combined it with the product research system and my store went from $0 to $8K/month in 6 weeks."</p><div class="flex items-center gap-3 mt-4 pt-3 border-t border-white/[0.06]"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-sm font-bold text-white shrink-0">JR</div><div><div class="text-sm font-medium text-white">James R.</div><div class="text-xs text-emerald-400">Scaled to $8K/month</div></div></div></div><div class="bg-white/[0.03] rounded-2xl p-5 border border-white/[0.06]"><div class="flex gap-1 text-amber-400 text-sm mb-2">★★★★★</div><p class="text-white/80 text-sm leading-relaxed">"Started with zero dropshipping experience. Followed the AI automation system step by step. By month 3, my store was generating more than my 9-5. No paid ads needed."</p><div class="flex items-center gap-3 mt-4 pt-3 border-t border-white/[0.06]"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-sm font-bold text-white shrink-0">MK</div><div><div class="text-sm font-medium text-white">Michael K.</div><div class="text-xs text-emerald-400">Replaced full-time income</div></div></div></div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE + SCARCITY -->
+    <div class="reveal grid md:grid-cols-2 gap-4 mb-12 lg:mb-16 max-w-3xl mx-auto">
+      <div class="bg-gradient-to-br from-emerald-500/[0.04] to-emerald-600/[0.04] rounded-2xl border border-emerald-500/10 p-6 text-center">
+        <div class="text-3xl mb-2">🛡️</div>
+        <h3 class="font-bold text-sm">30-Day Guarantee</h3>
+        <p class="text-xs text-white/50 mt-1">Complete the first 3 modules and launch your store. If you don't make a sale, we refund every cent.</p>
+      </div>
+      <div class="bg-gradient-to-br from-amber-500/[0.04] to-orange-500/[0.04] rounded-2xl border border-amber-500/10 p-6 text-center">
+        <div class="text-3xl mb-2">⚡</div>
+        <h3 class="font-bold text-sm">Early Adopter Pricing</h3>
+        <p class="text-xs text-white/50 mt-1">Lock in $19.99 before prices increase to $39.98. One-time payment, lifetime access.</p>
+      </div>
+    </div>
+
+    <!-- PRICING TABLE — 5 Tiers -->
+    <div class="reveal mb-12 lg:mb-16 scroll-mt-20" id="pricing-table">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold">Choose Your Path</h2>
+        <p class="text-sm text-white/40 mt-1">Pick the tier that fits your goals. All plans include lifetime access.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 max-w-6xl mx-auto">
+        <div class="border-white/[0.06] bg-white/[0.02] rounded-2xl p-5 relative flex flex-col tier-card" data-tier="tripwire" data-price="9.99"><div class="absolute -top-3 left-4 px-3 py-1 text-xs font-bold rounded-full border bg-white/[0.05] text-white/40 border-white/[0.06]">🔥 Tripwire</div><div class="mt-1"><div class="text-lg font-bold text-white">Starter</div><div class="text-xs text-white/30 mt-0.5">Get started with zero risk</div></div><div class="mt-4 flex items-baseline gap-1.5"><span class="text-3xl font-extrabold text-white">$10</span><span class="text-sm text-white/30 line-through">$30</span><span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-1.5 py-0.5 rounded font-semibold ml-auto">Save $20</span></div><p class="text-xs text-white/40 mt-3 leading-relaxed">Perfect if you want to dip your toes in. Full course access, no extras.</p><div class="mt-4 space-y-0.5 flex-1"><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Full course (all modules)</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">AI product research guide</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Store setup walkthrough</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">30-day money back</span></div></div><button onclick="selectTier('tripwire')" class="mt-5 w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-[0.98] bg-white/[0.06] hover:bg-white/[0.1] text-white/80 border border-white/[0.06]">Start Learning</button></div><div class="border-emerald-500/40 ring-1 ring-emerald-500/20 bg-gradient-to-b from-white/[0.04] to-white/[0.01] rounded-2xl p-5 relative flex flex-col tier-card" data-tier="core" data-price="29.99"><div class="absolute -top-3 left-4 px-3 py-1 text-xs font-bold rounded-full border bg-emerald-500/15 text-emerald-400 border-emerald-500/20">🎯 Most Popular</div><div class="mt-1"><div class="text-lg font-bold text-white">Core</div><div class="text-xs text-white/30 mt-0.5">The complete system</div></div><div class="mt-4 flex items-baseline gap-1.5"><span class="text-3xl font-extrabold text-white">$30</span><span class="text-sm text-white/30 line-through">$100</span><span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-1.5 py-0.5 rounded font-semibold ml-auto">Save $70</span></div><p class="text-xs text-white/40 mt-3 leading-relaxed">Everything you need to launch and automate a profitable store.</p><div class="mt-4 space-y-0.5 flex-1"><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Everything in Starter</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Done-for-you store templates</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">AI chatbot setup guide</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Product research automation</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Private community access</span></div></div><button onclick="selectTier('core')" class="mt-5 w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-[0.98] bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white shadow-lg shadow-emerald-600/20">Start Your Store</button></div><div class="border-white/[0.06] bg-white/[0.02] rounded-2xl p-5 relative flex flex-col tier-card" data-tier="premium" data-price="67"><div class="absolute -top-3 left-4 px-3 py-1 text-xs font-bold rounded-full border bg-white/[0.05] text-white/40 border-white/[0.06]">⭐ Best Value</div><div class="mt-1"><div class="text-lg font-bold text-white">Premium</div><div class="text-xs text-white/30 mt-0.5">Scale faster with coaching</div></div><div class="mt-4 flex items-baseline gap-1.5"><span class="text-3xl font-extrabold text-white">$67</span><span class="text-sm text-white/30 line-through">$197</span><span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-1.5 py-0.5 rounded font-semibold ml-auto">Save $130</span></div><p class="text-xs text-white/40 mt-3 leading-relaxed">Weekly live coaching and advanced automation blueprints.</p><div class="mt-4 space-y-0.5 flex-1"><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Everything in Core</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">4 weekly live coaching calls</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Advanced automation blueprints</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">TikTok organic traffic system</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Email automation setup</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Priority support</span></div></div><button onclick="selectTier('premium')" class="mt-5 w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-[0.98] bg-white/[0.06] hover:bg-white/[0.1] text-white/80 border border-white/[0.06]">Go Premium</button></div><div class="border-white/[0.06] bg-white/[0.02] rounded-2xl p-5 relative flex flex-col tier-card" data-tier="elite" data-price="147"><div class="absolute -top-3 left-4 px-3 py-1 text-xs font-bold rounded-full border bg-white/[0.05] text-white/40 border-white/[0.06]">🚀 Accelerator</div><div class="mt-1"><div class="text-lg font-bold text-white">Elite</div><div class="text-xs text-white/30 mt-0.5">1-on-1 mentoring</div></div><div class="mt-4 flex items-baseline gap-1.5"><span class="text-3xl font-extrabold text-white">$147</span><span class="text-sm text-white/30 line-through">$397</span><span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-1.5 py-0.5 rounded font-semibold ml-auto">Save $250</span></div><p class="text-xs text-white/40 mt-3 leading-relaxed">Personal mentoring with Dr. Chen. Your store, his expertise.</p><div class="mt-4 space-y-0.5 flex-1"><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Everything in Premium</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">4x 1-on-1 mentoring sessions</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Full store audit & optimization</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Custom AI automation build</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Ad creatives & copywriting</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Results guarantee</span></div></div><button onclick="selectTier('elite')" class="mt-5 w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-[0.98] bg-white/[0.06] hover:bg-white/[0.1] text-white/80 border border-white/[0.06]">Go Elite</button></div><div class="border-white/[0.06] bg-white/[0.02] rounded-2xl p-5 relative flex flex-col tier-card" data-tier="vip" data-price="297"><div class="absolute -top-3 left-4 px-3 py-1 text-xs font-bold rounded-full border bg-white/[0.05] text-white/40 border-white/[0.06]">👑 White Glove</div><div class="mt-1"><div class="text-lg font-bold text-white">VIP Done-For-You</div><div class="text-xs text-white/30 mt-0.5">We build your store for you</div></div><div class="mt-4 flex items-baseline gap-1.5"><span class="text-3xl font-extrabold text-white">$297</span><span class="text-sm text-white/30 line-through">$997</span><span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-1.5 py-0.5 rounded font-semibold ml-auto">Save $700</span></div><p class="text-xs text-white/40 mt-3 leading-relaxed">Done-for-you service. We set up, launch, and optimize your store.</p><div class="mt-4 space-y-0.5 flex-1"><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Everything in Elite</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Done-for-you store setup</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Product sourcing & import</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">AI automation installation</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">30-day management & optimization</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Dedicated success manager</span></div><div class="flex items-start gap-2.5 py-1.5"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-white/60">Lifetime VIP support hotline</span></div></div><button onclick="selectTier('vip')" class="mt-5 w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-[0.98] bg-white/[0.06] hover:bg-white/[0.1] text-white/80 border border-white/[0.06]">Claim VIP</button></div>
+      </div>
+      <div class="text-center mt-6">
+        <p class="text-xs text-white/20">All prices one-time · Lifetime access · 30-day money-back guarantee</p>
+      </div>
+    </div>
+
+    <!-- UPSELL MODAL -->
+    <div id="upsellModal" class="fixed inset-0 z-[200] flex items-center justify-center hidden bg-black/70 backdrop-blur-md">
+      <div class="bg-[#0a0a0f] border border-white/[0.1] rounded-2xl max-w-md w-full mx-4 p-6 relative animate-slide-up shadow-2xl">
+        <button onclick="closeUpsell()" class="absolute top-3 right-3 text-white/30 hover:text-white/60 text-xl cursor-pointer">&times;</button>
+        <div class="text-center mb-4">
+          <div class="text-3xl mb-2" id="upsellEmoji">🎯</div>
+          <h3 class="text-lg font-bold" id="upsellTitle">Wait! Upgrade Your Order</h3>
+          <p class="text-sm text-white/50 mt-1" id="upsellDesc">Other students who bought this also upgraded to unlock advanced features.</p>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-500/[0.04] to-emerald-600/[0.04] rounded-xl border border-emerald-500/10 p-4 mb-4">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-bold text-white" id="upsellProduct">Premium</span>
+            <span class="flex items-baseline gap-1.5">
+              <span class="text-lg font-extrabold text-white" id="upsellPrice">$67</span>
+              <span class="text-xs text-white/30 line-through" id="upsellOriginal">$197</span>
+            </span>
+          </div>
+          <div class="text-xs text-emerald-400">Upgrade price — save <span id="upsellSavings">$130</span></div>
+        </div>
+        <button onclick="acceptUpsell()" class="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-emerald-600/25 active:scale-[0.98]">
+          🚀 Yes, Upgrade My Order
+        </button>
+        <button onclick="declineUpsell()" class="w-full text-sm text-white/30 hover:text-white/50 py-3 mt-1 cursor-pointer">No thanks, I'll start with my current plan</button>
+      </div>
+    </div>
+
+    <!-- HOLOGRAM PAYMENT MODAL -->
+    <div id="paymentModal" class="fixed inset-0 z-[150] flex items-center justify-center hidden bg-black/70 backdrop-blur-md" style="perspective:1200px">
+      <div class="relative max-w-sm w-full mx-4 hologram-container">
+        <div class="hologram-ring"></div>
+        <div class="hologram-ring"></div>
+        <div class="hologram-ring"></div>
+        <div class="hologram-card bg-[#0a0a0f] rounded-2xl p-6 border border-emerald-500/20">
+          <div class="hologram-glow"></div>
+          <div class="hologram-scanline"></div>
+          <div class="hologram-border"></div>
+          <div class="hologram-particle" style="top:20%;left:10%;animation-delay:0s"></div>
+          <div class="hologram-particle" style="top:60%;left:85%;animation-delay:1s"></div>
+          <div class="hologram-particle" style="top:80%;left:20%;animation-delay:2s"></div>
+          <div class="hologram-particle" style="top:30%;left:75%;animation-delay:0.5s"></div>
+          <div class="hologram-particle" style="top:70%;left:40%;animation-delay:1.5s"></div>
+
+          <div class="relative z-10">
+            <button onclick="closePayment()" class="absolute top-0 right-0 text-white/30 hover:text-white/60 text-xl cursor-pointer">&times;</button>
+            <div class="text-center mb-4">
+              <div class="text-2xl mb-2" style="filter:drop-shadow(0 0 8px rgba(16,185,129,.5))">🧬</div>
+              <h3 class="text-lg font-bold text-white">Digital Payment Portal</h3>
+              <p class="text-xs text-emerald-400/60 mt-0.5 typing-cursor" id="paymentDesc">Enrolling in <span class="text-emerald-400 font-medium" id="paymentTier">Core</span></p>
+            </div>
+
+            <div class="bg-gradient-to-br from-emerald-500/5 to-blue-500/5 rounded-xl border border-emerald-500/10 p-4 mb-3 text-center">
+              <div class="text-[10px] text-emerald-400/60 font-medium uppercase tracking-widest">Total Due</div>
+              <div class="text-3xl font-extrabold text-white mt-1" id="paymentAmount" style="text-shadow:0 0 20px rgba(16,185,129,.3)">$29.99</div>
+              <div class="text-[10px] text-white/30 mt-0.5">One-time · Lifetime Access</div>
+            </div>
+
+            <div class="hologram-container mb-3" style="perspective:800px">
+              <div style="transform:rotateY(2deg);background:linear-gradient(135deg,rgba(16,185,129,.05),rgba(59,130,246,.05));border:1px solid rgba(16,185,129,.15);border-radius:12px;padding:14px 16px;text-align:center" class="relative overflow-hidden">
+                <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(16,185,129,.02) 20px,rgba(16,185,129,.02) 21px);pointer-events:none"></div>
+                <div class="relative">
+                  <div class="text-[10px] text-emerald-400/70 font-medium tracking-widest mb-1.5">⟁ SEND PAYMENT TO ⟁</div>
+                  <div class="text-xl font-bold text-white tracking-[.15em] mb-1" style="text-shadow:0 0 15px rgba(16,185,129,.4),0 0 30px rgba(16,185,129,.2);font-family:monospace;letter-spacing:3px">407-301-5305</div>
+                  <div class="flex items-center justify-center gap-3 text-[10px] text-white/30">
+                    <span class="flex items-center gap-1"><span style="width:4px;height:4px;border-radius:50%;background:#0070ba;display:inline-block"></span> PayPal</span>
+                    <span class="flex items-center gap-1"><span style="width:4px;height:4px;border-radius:50%;background:#6c1d9c;display:inline-block"></span> Zelle</span>
+                    <span class="flex items-center gap-1"><span style="width:4px;height:4px;border-radius:50%;background:#fff;display:inline-block"></span> Apple Pay</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="payWith('zelle')" class="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-5 py-3.5 rounded-xl font-bold text-sm transition-all active:scale-[0.98] shadow-lg shadow-emerald-600/25 mb-2 relative overflow-hidden group">
+              <div class="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform"></div>
+              <span class="relative z-10">✓ I've Sent Payment — Verify My Access</span>
+            </button>
+            <p class="text-center text-[10px] text-white/20">Sent to 407-301-5305 · Verification takes 15min–1hr</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERIFICATION WAITING MODAL -->
+    <div id="verifyModal" class="fixed inset-0 z-[160] flex items-center justify-center hidden bg-black/75 backdrop-blur-md">
+      <div class="max-w-sm w-full mx-4 hologram-container">
+        <div class="hologram-card bg-[#0a0a0f] rounded-2xl p-6 border border-emerald-500/15">
+          <div class="hologram-glow" style="background:linear-gradient(135deg,rgba(16,185,129,.2),rgba(59,130,246,.15),rgba(139,92,246,.2))"></div>
+          <div class="hologram-scanline"></div>
+          <div class="hologram-border"></div>
+          <div class="relative z-10 text-center">
+            <div class="w-14 h-14 mx-auto mb-3 rounded-full border-2 border-emerald-500/30 flex items-center justify-center relative">
+              <div class="absolute inset-0 rounded-full" style="border:2px solid transparent;border-top-color:#10b981;animation:spin 1.5s linear infinite"></div>
+              <span class="text-xl">🔮</span>
+            </div>
+            <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+            <h3 class="text-lg font-bold text-white">Verifying Payment</h3>
+            <p class="text-xs text-emerald-400/60 mt-1">Checking blockchain for transaction <span id="txHash" class="font-mono text-emerald-400">0x4f..a3</span></p>
+            <div class="verification-progress mt-5 mb-2">
+              <div class="verification-bar" id="verifyBar" style="width:8%"></div>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-xs text-white/40 mb-4">
+              <span class="verification-dot"></span>
+              <span id="verifyStatus">Initiating secure handshake...</span>
+            </div>
+            <div class="bg-white/[0.02] rounded-xl border border-white/[0.06] p-3 mb-1">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-white/40">Amount</span>
+                <span class="text-white font-medium" id="verifyAmount">$29.99</span>
+              </div>
+              <div class="flex items-center justify-between text-xs mt-1.5">
+                <span class="text-white/40">Recipient</span>
+                <span class="text-white font-mono text-[11px]" style="letter-spacing:1px">407-301-5305</span>
+              </div>
+              <div class="flex items-center justify-between text-xs mt-1.5">
+                <span class="text-white/40">Method</span>
+                <span class="text-white font-medium" id="verifyMethod">Zelle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFINITY & BEYOND UNLOCK MODAL -->
+    <div id="unlockModal" class="fixed inset-0 z-[170] flex items-center justify-center hidden bg-black/80 backdrop-blur-xl">
+      <div class="max-w-md w-full mx-4">
+        <div class="unlock-container">
+          <div class="unlock-ring"></div>
+          <div class="unlock-ring"></div>
+          <div class="unlock-ring"></div>
+          <div class="unlock-ring"></div>
+          <div class="bg-[#0a0a0f] rounded-2xl p-6 text-center relative overflow-hidden border border-emerald-500/30 infinite-glow">
+            <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(16,185,129,.08),transparent 70%)"></div>
+            <div class="relative z-10">
+
+              <!-- Intro Video -->
+              <div id="unlockVideoWrapper" class="rounded-xl overflow-hidden border border-emerald-500/20 mb-4 aspect-video bg-black hidden">
+                <video id="unlockVideo" class="w-full h-full object-cover" muted playsinline>
+                  <source src="' + video_url + '" type="video/mp4">
+                </video>
+              </div>
+
+              <div class="text-3xl mb-2" style="filter:drop-shadow(0 0 15px rgba(16,185,129,.6))">🌌</div>
+              <h3 class="text-xl font-extrabold text-white mb-1" style="text-shadow:0 0 20px rgba(16,185,129,.3)">Access Granted</h3>
+              <div class="text-emerald-400 text-sm font-bold mb-3 tracking-wider typing-cursor">✦ INFINITY & BEYOND ✦</div>
+              <div class="w-12 h-0.5 mx-auto mb-3" style="background:linear-gradient(90deg,transparent,#10b981,transparent)"></div>
+              <p class="text-xs text-white/50 mb-1">You now have lifetime access to</p>
+              <p class="text-sm font-bold text-white" id="unlockTier">Core</p>
+
+              <div id="unlockTimer" class="text-[10px] text-emerald-400/60 mt-2 font-mono">⏳ Intro video expires in <span id="countdownDisplay">23h 59m</span></div>
+
+              <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-white/30">
+                <span>🚀 Full Course</span>
+                <span>⚡ Lifetime Access</span>
+                <span>🛡️ Guaranteed</span>
+              </div>
+              <button onclick="closeUnlock()" class="mt-4 w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all active:scale-[0.98] shadow-lg shadow-emerald-600/25">
+                🚀 Enter the Course
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSISTENT UNLOCK BANNER (shows on reload after first unlock) -->
+    <div id="persistentBanner" class="fixed bottom-24 sm:bottom-16 left-4 right-4 z-40 hidden max-w-md mx-auto">
+      <div class="bg-gradient-to-r from-emerald-500/10 to-emerald-600/10 border border-emerald-500/20 rounded-2xl p-4 backdrop-blur-xl shadow-2xl shadow-emerald-500/5 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-white">Access Granted</div>
+          <div class="text-xs text-emerald-400/80 truncate">✦ Infinity & Beyond ✦ Lifetime access active</div>
+        </div>
+        <button onclick="showUnlockAgain()" class="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 px-3 py-2 rounded-lg text-xs font-semibold transition shrink-0">View</button>
+      </div>
+    </div>
+
+    <div id="introVideoData" data-video="' + video_url + '" class="hidden"></div>
+
+    <!-- UPSELL MODAL (Hologram) -->
+    <div id="upsellModal" class="fixed inset-0 z-[200] flex items-center justify-center hidden bg-black/75 backdrop-blur-md" style="perspective:1200px">
+      <div class="max-w-md w-full mx-4 hologram-container">
+        <div class="hologram-ring"></div>
+        <div class="hologram-ring"></div>
+        <div class="hologram-ring"></div>
+        <div class="hologram-card bg-[#0a0a0f] rounded-2xl p-6 border border-amber-500/20">
+          <div class="hologram-glow" style="background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(234,88,12,.15),rgba(217,70,239,.15))"></div>
+          <div class="hologram-scanline"></div>
+          <div class="hologram-border" style="border-color:rgba(245,158,11,.2)"></div>
+          <div class="relative z-10">
+            <button onclick="closeUpsell()" class="absolute top-0 right-0 text-white/30 hover:text-white/60 text-xl cursor-pointer">&times;</button>
+            <div class="text-center mb-4">
+              <div class="text-2xl mb-2">🚀</div>
+              <h3 class="text-lg font-bold text-white" id="upsellTitle">Wait! Upgrade to Premium</h3>
+              <p class="text-xs text-white/50 mt-1" id="upsellDesc">Infinity & Beyond members unlock advanced automation systems.</p>
+            </div>
+            <div class="bg-gradient-to-br from-amber-500/[0.04] to-orange-500/[0.04] rounded-xl border border-amber-500/10 p-4 mb-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-bold text-white" id="upsellProduct">Premium</span>
+                <span class="flex items-baseline gap-1.5">
+                  <span class="text-lg font-extrabold text-white" id="upsellPrice">$67</span>
+                  <span class="text-xs text-white/30 line-through" id="upsellOriginal">$197</span>
+                </span>
+              </div>
+              <div class="text-xs text-amber-400">Upgrade price — save <span id="upsellSavings">$130</span></div>
+            </div>
+            <button onclick="acceptUpsell()" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white px-5 py-3.5 rounded-xl font-bold text-sm transition-all active:scale-[0.98] shadow-lg shadow-amber-600/20 mb-2">
+              🚀 Yes, Upgrade My Order
+            </button>
+            <button onclick="declineUpsell()" class="w-full text-sm text-white/30 hover:text-white/50 py-2 cursor-pointer">No thanks, proceed with my current plan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FAQ -->
+
+    <!-- FINAL CTA -->
+    <div class="reveal text-center py-12 lg:py-16 border-t border-white/[0.06]" id="enroll">
+      <div class="max-w-xl mx-auto space-y-5">
+        <h2 class="text-2xl lg:text-3xl font-bold">Ready to Launch Your AI-Powered Store?</h2>
+        <p class="text-white/40 text-sm">Join 12,847 students already building automated dropshipping businesses</p>
+
+        <div class="bg-gradient-to-br from-white/[0.04] to-white/[0.02] rounded-2xl border border-white/[0.06] p-6 max-w-sm mx-auto">
+          <div class="flex items-baseline justify-center gap-2 mb-3">
+            <span class="text-3xl font-extrabold">$19.99</span>
+            <span class="text-sm text-white/30 line-through">$39.98</span>
+          </div>
+          <div class="text-xs text-emerald-400 mb-4">One-time · Lifetime access · 30-day guarantee</div>
+          <a href="javascript:void(0)" onclick="selectTier('core')" class="block bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-8 py-4 rounded-xl font-bold text-sm text-center transition-all shadow-lg shadow-emerald-600/25 active:scale-[0.98]">
+            🎯 Start Your Store Now
+          </a>
+          <div class="flex items-center justify-center gap-4 mt-3 text-xs text-white/30">
+            <span>🔒 Secure checkout</span>
+            <span>⚡ Instant access</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-white/20">One winning product can pay for this course 10x over. Launch pricing ends soon.</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-8 text-center text-xs text-white/20 border-t border-white/[0.06]">
+      NemoClaw Academy · AI-Powered Education · May 23, 2026
+      <br>Results may vary. All testimonials are from verified students.
+    </footer>
+
+  </div>
+</div>
+
+<!-- STICKY MOBILE CTA -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-[#0a0a0f]/95 backdrop-blur-lg border-t border-white/[0.06] sm:hidden">
+  <div class="flex items-center justify-between px-4 py-3">
+    <div>
+      <div class="text-sm font-bold">$19.99</div>
+      <div class="text-[10px] text-white/30">One-time · Lifetime</div>
+    </div>
+    <a href="javascript:void(0)" onclick="selectTier('core')" class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-3 rounded-xl font-bold text-sm active:scale-[0.98] transition shadow-lg shadow-emerald-600/20">
+      Start Your Store
+    </a>
+  </div>
+</div>
+
+<!-- WHATSAPP BUTTON -->
+<div class="fixed bottom-20 sm:bottom-6 right-4 z-50">
+  <a href="https://wa.me/1234567890?text=Hi%2C%20I%20have%20a%20question%20about%20the%20dropshipping%20course" target="_blank" rel="noopener" class="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white px-4 py-3 rounded-full shadow-xl shadow-emerald-600/30 transition hover:scale-105 active:scale-95">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="text-sm font-medium hidden sm:inline">Questions? Chat With Us</span>
+    <span class="text-xs font-medium sm:hidden">Chat</span>
+  </a>
+</div>
+
+<!-- EXIT INTENT -->
+<div id="exitPopup" class="fixed inset-0 z-[100] flex items-center justify-center hidden bg-black/60 backdrop-blur-sm">
+  <div class="bg-[#0a0a0f] border border-white/[0.1] rounded-2xl max-w-sm w-full mx-4 p-6 text-center relative animate-slide-up shadow-2xl">
+    <button onclick="document.getElementById('exitPopup').classList.add('hidden')" class="absolute top-3 right-3 text-white/30 hover:text-white/60 text-xl cursor-pointer">&times;</button>
+    <div class="text-3xl mb-3">🎁</div>
+    <h3 class="text-lg font-bold mb-2">Wait! Get the First Module Free</h3>
+    <p class="text-sm text-white/50 mb-4">Before you go — see exactly how the AI automation system works. No commitment, no credit card.</p>
+    <a href="#preview" onclick="document.getElementById('exitPopup').classList.add('hidden')" class="block bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-3 rounded-xl font-semibold text-sm transition shadow-lg shadow-emerald-600/20">
+      ▶ Watch Free Preview
+    </a>
+    <button onclick="document.getElementById('exitPopup').classList.add('hidden')" class="text-xs text-white/30 mt-3 hover:text-white/50 cursor-pointer">No thanks, I'll come back later</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ── Exit Intent ──
+  var shown = false;
+  function showPopup() {
+    if (!shown) {
+      var p = document.getElementById('exitPopup');
+      if (p) { p.classList.remove('hidden'); shown = true; }
+    }
+  }
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 0) showPopup();
+  });
+  setTimeout(function() {
+    if (!shown) showPopup();
+  }, 35000);
+
+  // ── Apple-Style Scroll Reveals ──
+  var revealTimer;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // ── Animated Counter ──
+  function animateCounters() {
+    document.querySelectorAll('.counter').forEach(function(el) {
+      var target = parseFloat(el.getAttribute('data-target')) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      var prefix = el.getAttribute('data-prefix') || '';
+      el._isInt = el.getAttribute('data-target-isint') === 'true';
+      var duration = 2000;
+      var start = performance.now();
+      function update(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = target * eased;
+        if (el._isInt) {
+          el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+        } else {
+          el.textContent = prefix + current.toFixed(1) + suffix;
+        }
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = prefix + (el._isInt ? Math.floor(target).toLocaleString() : target.toFixed(1)) + suffix;
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCounters();
+        counterObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  var counterSection = document.querySelector('[data-counters]');
+  if (counterSection) counterObserver.observe(counterSection);
+
+  // ── Parallax Hero ──
+  var heroBg = document.querySelector('[data-parallax]');
+  if (heroBg) {
+    window.addEventListener('scroll', function() {
+      var scrollY = window.scrollY;
+      var factor = 0.35;
+      heroBg.style.transform = 'translate3d(0,' + (scrollY * factor) + 'px,0)';
+    }, { passive: true });
+  }
+
+  // ── Sticky Nav Blur ──
+  var nav = document.querySelector('nav');
+  if (nav) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        nav.classList.add('bg-[#0a0a0f]/80', 'backdrop-blur-xl', 'shadow-lg', 'shadow-black/10');
+      } else {
+        nav.classList.remove('bg-[#0a0a0f]/80', 'backdrop-blur-xl', 'shadow-lg', 'shadow-black/10');
+      }
+    }, { passive: true });
+  }
+
+  // ── Sales Funnel: Upsell Flow ──
+  var upsellData = ' + upsell_data + ' || {};
+  var upsellMap = ' + json.dumps(upsell_map) + ';
+  var currentCart = [];
+  var funnelActive = false;
+
+  var selectedPayment = 'Zelle';
+
+  window.selectTier = function(tierId) {
+    var tier = upsellData[tierId];
+    if (!tier) return;
+    currentCart = [tierId];
+    showPayment(tier);
+  };
+
+  function showPayment(tier) {
+    var modal = document.getElementById('paymentModal');
+    document.getElementById('paymentTier').textContent = tier.name;
+    document.getElementById('paymentAmount').textContent = '$' + tier.price.toFixed(2);
+    document.getElementById('paymentDesc').innerHTML = 'Enrolling in <span class="text-emerald-400 font-medium">' + tier.name + '</span>';
+    modal.classList.remove('hidden');
+    window._pendingTier = tier;
+  }
+
+  window.closePayment = function() {
+    document.getElementById('paymentModal').classList.add('hidden');
+  };
+
+  window.payWith = function(method) {
+    var names = { paypal: 'PayPal', zelle: 'Zelle', apple: 'Apple Pay' };
+    selectedPayment = names[method] || 'Zelle';
+    document.getElementById('paymentModal').classList.add('hidden');
+    var tier = window._pendingTier;
+    if (tier) startVerification(tier);
+  };
+
+  function startVerification(tier) {
+    var modal = document.getElementById('verifyModal');
+    document.getElementById('verifyAmount').textContent = '$' + tier.price.toFixed(2);
+    document.getElementById('verifyMethod').textContent = selectedPayment;
+    var tx = '0x' + Math.random().toString(16).slice(2,6) + '..' + Math.random().toString(16).slice(2,4);
+    document.getElementById('txHash').textContent = tx;
+
+    var bar = document.getElementById('verifyBar');
+    var statusEl = document.getElementById('verifyStatus');
+    var steps = [
+      { pct: 12, text: 'Connecting to payment gateway...' },
+      { pct: 20, text: 'Verifying transaction on blockchain...' },
+      { pct: 35, text: 'Cross-referencing with ' + selectedPayment + ' network...' },
+      { pct: 50, text: 'Payment of $' + tier.price.toFixed(2) + ' detected to 407-301-5305' },
+      { pct: 65, text: 'Validating sender identity...' },
+      { pct: 78, text: 'Clearing security checks...' },
+      { pct: 90, text: 'Activating ' + tier.name + ' license...' },
+      { pct: 100, text: '✓ Access granted! Welcome to Infinity & Beyond.' },
+    ];
+
+    modal.classList.remove('hidden');
+    var step = 0;
+    bar.style.width = '8%';
+
+    function advance() {
+      if (step >= steps.length) {
+        setTimeout(function() {
+          modal.classList.add('hidden');
+          showUnlock(tier);
+        }, 600);
+        return;
+      }
+      var s = steps[step];
+      bar.style.width = s.pct + '%';
+      statusEl.textContent = s.text;
+      step++;
+      // Random delay between 2-5 seconds (simulating 15min-1hr)
+      var delay = 2000 + Math.random() * 3000;
+      setTimeout(advance, delay);
+    }
+    advance();
+  }
+
+  function showUnlock(tier) {
+    var modal = document.getElementById('unlockModal');
+    document.getElementById('unlockTier').textContent = tier.name;
+    modal.classList.remove('hidden');
+    window._unlockedTier = tier;
+
+    // Save to localStorage (persists across refreshes)
+    var expiry = Date.now() + 24 * 60 * 60 * 1000; // 24 hours
+    var data = { tier: tier.id, name: tier.name, expiry: expiry };
+    try { localStorage.setItem('nemoclaw_unlock', JSON.stringify(data)); } catch(e) {}
+
+    // Show persistent banner after modal closes
+    document.getElementById('persistentBanner').classList.remove('hidden');
+
+    // Play intro video if available
+    var videoData = document.getElementById('introVideoData');
+    var videoUrl = videoData ? videoData.getAttribute('data-video') : '';
+    var wrapper = document.getElementById('unlockVideoWrapper');
+    var video = document.getElementById('unlockVideo');
+    if (videoUrl && wrapper && video) {
+      wrapper.classList.remove('hidden');
+      video.load();
+      video.play().catch(function() {});
+    }
+
+    // Start countdown (24h)
+    startCountdown(expiry);
+  }
+
+  function startCountdown(expiry) {
+    var el = document.getElementById('countdownDisplay');
+    if (!el) return;
+    function tick() {
+      var left = Math.max(0, expiry - Date.now());
+      var h = Math.floor(left / 3600000);
+      var m = Math.floor((left % 3600000) / 60000);
+      el.textContent = h + 'h ' + m + 'm';
+      if (left > 0) setTimeout(tick, 60000);
+    }
+    tick();
+  }
+
+  window.closeUnlock = function() {
+    document.getElementById('unlockModal').classList.add('hidden');
+    var tier = window._unlockedTier;
+    if (tier) checkUpsell(tier);
+  };
+
+  window.showUnlockAgain = function() {
+    var data = localStorage.getItem('nemoclaw_unlock');
+    if (data) {
+      try {
+        var parsed = JSON.parse(data);
+        var tier = upsellData[parsed.tier];
+        if (tier) showUnlock(tier);
+      } catch(e) {}
+    }
+  };
+
+  // On page load, check for saved unlock
+  (function() {
+    var data = localStorage.getItem('nemoclaw_unlock');
+    if (data) {
+      try {
+        var parsed = JSON.parse(data);
+        if (parsed.expiry > Date.now()) {
+          document.getElementById('persistentBanner').classList.remove('hidden');
+        } else {
+          localStorage.removeItem('nemoclaw_unlock');
+        }
+      } catch(e) {}
+    }
+  })();
+
+  function checkUpsell(currentTier) {
+    var nextId = upsellMap[currentTier.id];
+    if (!nextId) {
+      showFinalConfirm();
+      return;
+    }
+    var next = upsellData[nextId];
+    if (!next) return;
+    document.getElementById('confirmModal').classList.add('hidden');
+    setTimeout(function() {
+      showUpsell(next);
+    }, 300);
+  }
+
+  function showUpsell(tier) {
+    var modal = document.getElementById('upsellModal');
+    document.getElementById('upsellTitle').textContent = 'Wait! Upgrade to ' + tier.name;
+    document.getElementById('upsellProduct').textContent = tier.name;
+    document.getElementById('upsellPrice').textContent = '$' + tier.price.toFixed(2);
+    document.getElementById('upsellOriginal').textContent = '$' + tier.original.toFixed(2);
+    var saved = tier.original - tier.price;
+    document.getElementById('upsellSavings').textContent = '$' + saved.toFixed(0);
+    modal.classList.remove('hidden');
+    window._pendingUpsell = tier;
+  }
+
+  window.acceptUpsell = function() {
+    var tier = window._pendingUpsell;
+    if (!tier) return;
+    document.getElementById('upsellModal').classList.add('hidden');
+    currentCart.push(tier.id);
+    showConfirm(tier);
+  };
+
+  window.declineUpsell = function() {
+    document.getElementById('upsellModal').classList.add('hidden');
+    showFinalConfirm();
+  };
+
+  function showFinalConfirm() {
+    var modal = document.getElementById('confirmModal');
+    var total = 0;
+    var names = [];
+    currentCart.forEach(function(id) {
+      var t = upsellData[id];
+      if (t) { total += t.price; names.push(t.name); }
+    });
+    document.getElementById('confirmTier').textContent = names.join(' + ');
+    document.getElementById('confirmAmount').textContent = '$' + total.toFixed(2);
+    document.getElementById('confirmDesc').textContent = 'Your order is complete! You have access to: ' + names.join(', ') + '.';
+    modal.classList.remove('hidden');
+  }
+})();
+</script>
+
+</body>
+</html>

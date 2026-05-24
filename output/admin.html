@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NemoClaw — Admin Panel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+*{font-family:'Inter',system-ui,sans-serif}
+body{background:#05070B;color:#E8E8EC}
+.mono{font-family:'JetBrains Mono',monospace!important}
+.card{background:rgba(15,17,21,1);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px}
+.sv{font-size:24px;font-weight:700;color:#00FFC6;font-family:'JetBrains Mono',monospace}
+.sl{font-size:10px;color:rgba(255,255,255,.25);font-family:'JetBrains Mono',monospace;margin-top:2px}
+.bb{background:rgba(255,255,255,.04);border-radius:4px;height:6px;overflow:hidden}
+.bf{height:100%;border-radius:4px;background:linear-gradient(90deg,#00FFC6,#00D99C);transition:width .6s ease}
+.tb{font-size:9px;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.1em;padding-bottom:6px;font-family:'JetBrains Mono',monospace}
+.tr{font-size:10px;color:rgba(255,255,255,.4);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03);font-family:'JetBrains Mono',monospace}
+.tr:last-child{border-bottom:none}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.06);border-radius:4px}
+</style>
+</head>
+<body class="p-4 sm:p-6 max-w-5xl mx-auto">
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-6 h-6 rounded-lg bg-[#00FFC6] flex items-center justify-center text-[12px] font-black text-black">N</div>
+        <h1 class="text-sm font-bold text-white/80">Admin Terminal</h1>
+      </div>
+      <p class="text-xs text-white/20 mono">May 24, 2026 16:02</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-[12px] text-white/15 mono" id="sLive">connected</span>
+      <a href="/" class="text-xs text-white/25 hover:text-white/50 transition-colors mono">&larr; Vault</a>
+    </div>
+  </div>
+
+  <!-- Stat Cards -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6" id="stats">
+    <div class="card"><div class="sv" id="sTotal">-</div><div class="sl">PDFs Generated</div></div>
+    <div class="card"><div class="sv" id="sUptime">-</div><div class="sl">Uptime</div></div>
+    <div class="card"><div class="sv" id="sOk">-</div><div class="sl">Successful</div></div>
+    <div class="card"><div class="sv" id="sErr">-</div><div class="sl">Errors</div></div>
+  </div>
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+    <div class="card"><div class="sv" id="sEmails">-</div><div class="sl">Emails Captured</div></div>
+    <div class="card"><div class="sv" id="sAvgSize">-</div><div class="sl">Avg PDF Size</div></div>
+    <div class="card"><div class="sv" id="sStripe">-</div><div class="sl">Stripe</div></div>
+    <div class="card"><div class="sv" id="sSmtp">-</div><div class="sl">SMTP</div></div>
+  </div>
+
+  <div class="grid sm:grid-cols-2 gap-4 mb-6">
+    <div class="card">
+      <div class="text-[12px] font-semibold text-white/60 mb-3">By Niche</div>
+      <div id="nb" class="space-y-2"><div class="text-[12px] text-white/20 mono">Loading...</div></div>
+    </div>
+    <div class="card">
+      <div class="flex items-center justify-between mb-3">
+        <div class="text-[12px] font-semibold text-white/60">Recent Requests</div>
+        <span class="text-xs text-white/10 mono" id="sReqCount">0</span>
+      </div>
+      <div class="tb" style="display:grid;grid-template-columns:1fr 1fr 1fr 60px"><span>Time</span><span>Niche</span><span>IP</span><span>Status</span></div>
+      <div id="rr" class="max-h-64 overflow-y-auto"><div class="text-[12px] text-white/20 mono">Loading...</div></div>
+    </div>
+  </div>
+
+  <!-- Manual PDF Generator -->
+  <div class="card mb-6">
+    <div class="text-[12px] font-semibold text-white/60 mb-3">Manual PDF Generation</div>
+    <div class="flex gap-2 items-start sm:items-center flex-col sm:flex-row">
+      <select id="mn" class="bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2 text-xs text-white/70 mono outline-none focus:border-[#00FFC6]/40 transition-colors w-full sm:w-auto">
+        <option value="ai-side-hustles">AI Commerce Automation Stack (10 cr)</option>
+<option value="crypto-defi">Automated Capital Allocation System (20 cr)</option>
+<option value="health-biohacking">AI Health Optimization Protocol (15 cr)</option>
+<option value="ai-ecommerce">AI E-Commerce Automation Suite (20 cr)</option>
+<option value="viral-content">AI Content Monetization Engine (30 cr)</option>
+<option value="digital-real-estate">Digital Asset Growth Engine (25 cr)</option>
+<option value="dating-optimization">AI Social Optimization Framework (8 cr)</option>
+<option value="productivity-hacks">AI Productivity Automation (0 cr)</option>
+<option value="home-fitness">AI Fitness & Recovery System (0 cr)</option>
+<option value="remote-freedom">Remote Business Automation (35 cr)</option>
+
+      </select>
+      <button onclick="genPDF()" class="bg-[#00FFC6]/15 hover:bg-[#00FFC6]/25 text-[#00FFC6] text-[12px] font-semibold px-4 py-2 rounded-lg transition-colors mono">Generate</button>
+      <span id="ms" class="text-xs text-white/20 mono"></span>
+    </div>
+  </div>
+
+  <footer class="text-center text-xs text-white/10 mono border-t border-white/[0.04] pt-4 mt-4">
+    NemoClaw Admin &middot; <a href="/" class="text-white/15 hover:text-white/30">Vault</a>
+  </footer>
+
+<script>
+var pi = null;
+function fmtBytes(b) {
+  if (!b) return '0 B';
+  var u = ['B','KB','MB','GB']; var i = 0;
+  while (b >= 1024 && i < 3) { b /= 1024; i++; }
+  return b.toFixed(1) + ' ' + u[i];
+}
+function load() {
+  fetch('/admin-api/stats').then(function(r){return r.json()}).then(function(d) {
+    document.getElementById('sTotal').textContent = d.total || 0;
+    document.getElementById('sUptime').textContent = d.uptime || '-';
+    document.getElementById('sOk').textContent = d.ok_count || 0;
+    document.getElementById('sErr').textContent = d.error_count || 0;
+    document.getElementById('sEmails').textContent = d.emails_captured || 0;
+    document.getElementById('sAvgSize').textContent = fmtBytes(d.avg_size);
+    document.getElementById('sStripe').textContent = d.stripe_enabled ? 'Live' : 'Sim';
+    document.getElementById('sStripe').style.color = d.stripe_enabled ? '#00FFC6' : '#F59E0B';
+    document.getElementById('sSmtp').textContent = d.smtp_enabled ? 'Live' : 'Off';
+    document.getElementById('sSmtp').style.color = d.smtp_enabled ? '#00FFC6' : '#6B6B78';
+    document.getElementById('sReqCount').textContent = (d.recent||[]).length + ' shown';
+    var ns = Object.keys(d.niche_breakdown || {});
+    document.getElementById('sLive').textContent = new Date().toLocaleTimeString();
+    var nb = document.getElementById('nb'); nb.innerHTML = '';
+    var mx = Math.max(1, ...Object.values(d.niche_breakdown || {}));
+    Object.entries(d.niche_breakdown || {}).forEach(function(e) {
+      var pct = (e[1] / mx * 100).toFixed(0);
+      var div = document.createElement('div'); div.className = 'flex items-center gap-2';
+      div.innerHTML = '<span class="mono text-xs text-white/35 w-28 truncate">' + e[0] + '</span><div class="bb flex-1"><div class="bf" style="width:' + Math.min(pct, 100) + '%"></div></div><span class="mono text-xs text-[#00FFC6]/60 w-6 text-right">' + e[1] + '</span>';
+      nb.appendChild(div);
+    });
+    var rr = document.getElementById('rr'); rr.innerHTML = '';
+    if (!d.recent || !d.recent.length) { rr.innerHTML = '<div class="text-[12px] text-white/20 mono">No requests.</div>'; }
+    else { d.recent.forEach(function(r) {
+      var ts = new Date(r.time * 1000).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+      var sc = r.status === 'ok' ? 'text-emerald-400/60' : (r.status === 'error' ? 'text-red-400/60' : 'text-white/20');
+      var row = document.createElement('div'); row.className = 'tr'; row.style.display = 'grid'; row.style.gridTemplateColumns = '1fr 1fr 1fr 60px';
+      row.innerHTML = '<span>' + ts + '</span><span class="truncate">' + (r.niche || '') + '</span><span class="truncate">' + (r.ip || '') + '</span><span class="' + sc + '">' + (r.status||'') + '</span>';
+      rr.appendChild(row);
+    }); }
+  }).catch(function() {
+    ['sTotal','sUptime','sOk','sErr','sEmails','sAvgSize'].forEach(function(id) { document.getElementById(id).textContent = 'ERR'; });
+    document.getElementById('nb').innerHTML = '<div class="text-[12px] text-red-400/40 mono">Connection failed.</div>';
+    document.getElementById('rr').innerHTML = '<div class="text-[12px] text-red-400/40 mono">Connection failed.</div>';
+  });
+}
+window.genPDF = function() {
+  var id = document.getElementById('mn').value;
+  document.getElementById('ms').textContent = 'Generating...';
+  fetch('/admin-api/generate-pdf', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({niche_id:id})})
+  .then(function(r){if(!r.ok)throw Error('Fail');return r.blob()})
+  .then(function(b){var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download=id+'.pdf';document.body.appendChild(a);a.click();setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(u)},300);document.getElementById('ms').textContent='Done.';setTimeout(load,500)})
+  .catch(function(e){document.getElementById('ms').textContent='Error: '+(e.message||'')});
+};
+load(); if (pi) clearInterval(pi); pi = setInterval(load, 5000);
+</script>
+</body>
+</html>

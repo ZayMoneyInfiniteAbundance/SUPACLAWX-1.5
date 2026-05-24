@@ -1,0 +1,55 @@
+{
+  "title": "Transform Your YouTube Channel into a Money-Making Machine!",
+  "hook": "Are you tired of spending hours on YouTube, only to see little to no results?",
+  "script": [
+    {
+      "time": "0:00",
+      "text": "Hey everyone, welcome back to my channel!",
+      "visual": "Avatar appears with an energetic background"
+    },
+    {
+      "time": "0:15",
+      "text": "Are you tired of feeling like you're stuck in a never-ending cycle of creating content, only to see it fall flat?",
+      "visual": "Avatar looks concerned with a subtle animated overlay"
+    },
+    {
+      "time": "0:30",
+      "text": "Well, I've got some exciting news for you! I'm about to share a game-changing secret that'll unlock the full potential of your YouTube channel.",
+      "visual": "Avatar holds up a mysterious-looking file or tablet"
+    },
+    {
+      "time": "1:00",
+      "text": "Introducing 'Unlocking YouTube Automation and Monetization' - the ultimate course for turning your passion into a profitable business!",
+      "visual": "Avatar smiles with a laptop or computer in the background"
+    },
+    {
+      "time": "1:30",
+      "text": "With this comprehensive course, you'll learn how to automate your video management, create high-performing titles and tags that drive views, and unlock a new world of passive income through AdSense, affiliate marketing, and memberships.",
+      "visual": "Avatar holds up a 'Before and After' split-screen comparison, with a successful YouTube channel on one side"
+    },
+    {
+      "time": "2:45",
+      "text": "And the best part? This course is designed to help you save time and increase your earnings - all for just $29.99!",
+      "visual": "Avatar appears with a price tag '\u00a329.99' on screen"
+    },
+    {
+      "time": "3:00",
+      "text": "So, what are you waiting for? Click the link below to get instant access to 'Unlocking YouTube Automation and Monetization' and start transforming your channel today!",
+      "visual": "Avatar appears with a 'Get Instant Access' button on screen"
+    }
+  ],
+  "cta": "Click the link below to join the course now!",
+  "hashtags": [
+    "#YouTubeAutomation",
+    "#MonetizeYourChannel",
+    "#PassiveIncome"
+  ],
+  "duration_seconds": 60,
+  "mood": "energetic|inspirational",
+  "course_title": "Unlocking YouTube Automation and Monetization",
+  "generated_at": "2026-05-23T19:46:30.421351",
+  "avatar": "NemoClaw Teacher",
+  "avatar_style": "professional",
+  "id": "20260523_194630_transform_your_youtube_channel_into_a_mo",
+  "created_at": "2026-05-23T19:46:30.421579"
+}

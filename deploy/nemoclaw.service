@@ -1,0 +1,28 @@
+[Unit]
+Description=NemoClaw Intelligence Server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/nemoclaw
+Environment=PYTHONUNBUFFERED=1
+Environment=PUBLIC_URL=https://nemoclaw.network
+Environment=DOMAIN=nemoclaw.network
+Environment=SERVER_HOST=127.0.0.1
+Environment=SERVER_PORT=8765
+Environment=STRIPE_SECRET_KEY=
+Environment=STRIPE_PUBLISHABLE_KEY=
+Environment=STRIPE_WEBHOOK_SECRET=
+Environment=SMTP_HOST=
+Environment=SMTP_PORT=587
+Environment=SMTP_USER=
+Environment=SMTP_PASS=
+Environment=EMAIL_FROM=clearance@nemoclaw.network
+Environment=GEMINI_API_KEY=
+ExecStart=/usr/bin/python3 /var/www/nemoclaw/server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

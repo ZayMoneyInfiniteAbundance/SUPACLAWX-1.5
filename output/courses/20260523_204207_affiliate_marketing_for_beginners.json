@@ -1,0 +1,95 @@
+{
+  "title": "Affiliate Marketing for Beginners",
+  "subtitle": "Start Earning Online with This Proven System",
+  "topic": "Affiliate marketing for beginners",
+  "difficulty": "beginner",
+  "price": 19.99,
+  "intro_video_script": "Are you tired of flimsy get-rich-quick schemes? Do you want to build a sustainable online business that generates passive income? Affiliate marketing is the answer! In this course, we'll show you how to get started with affiliate marketing and start earning money online.",
+  "modules": [
+    {
+      "title": "Module 1: Introduction to Affiliate Marketing",
+      "lessons": [
+        {
+          "title": "What is Affiliate Marketing?",
+          "content": "Affiliate marketing is a form of online marketing that involves promoting products or services from another company and earning a commission on sales. It's a win-win for both the advertiser and the affiliate marketer.",
+          "duration_minutes": 5
+        },
+        {
+          "title": "Benefits of Affiliate Marketing",
+          "content": "Affiliate marketing offers several benefits, including passive income, low startup costs, and the ability to promote high-quality products from trusted brands.",
+          "duration_minutes": 3
+        }
+      ]
+    },
+    {
+      "title": "Module 2: Choosing Your Niche",
+      "lessons": [
+        {
+          "title": "What is a Niche?",
+          "content": "A niche is a specific area of interest or expertise. In affiliate marketing, choosing a niche helps you target a specific audience and promote products that resonate with them.",
+          "duration_minutes": 5
+        },
+        {
+          "title": "How to Choose a Profitable Niche",
+          "content": "When choosing a niche, consider factors such as competition, demand, and product availability. Use tools like Google Trends and Amazon Best Sellers to find profitable niches.",
+          "duration_minutes": 10
+        }
+      ]
+    },
+    {
+      "title": "Module 3: Building Your Affiliate Marketing Platform",
+      "lessons": [
+        {
+          "title": "What is a Website or Blog?",
+          "content": "A website or blog is the central hub of your affiliate marketing business. It's where you'll promote products and share valuable content with your audience.",
+          "duration_minutes": 5
+        },
+        {
+          "title": "How to Create a WordPress Website",
+          "content": "Using WordPress, you can create a professional-looking website in just a few clicks. Choose a theme, install necessary plugins, and customize your design.",
+          "duration_minutes": 10
+        }
+      ]
+    },
+    {
+      "title": "Module 4: Finding Affiliate Programs",
+      "lessons": [
+        {
+          "title": "What is an Affiliate Program?",
+          "content": "An affiliate program connects you with advertisers who want to promote their products. You earn a commission on sales generated through your unique affiliate link.",
+          "duration_minutes": 5
+        },
+        {
+          "title": "How to Find Affiliate Programs",
+          "content": "Use affiliate networks like ShareASale, Commission Junction, and Amazon Associates to find affiliate programs. Research products, read reviews, and join programs that align with your niche.",
+          "duration_minutes": 10
+        }
+      ]
+    },
+    {
+      "title": "Module 5: Creating Affiliate Marketing Content",
+      "lessons": [
+        {
+          "title": "What is Blogging?",
+          "content": "Blogging involves creating and publishing content on a website or blog. In affiliate marketing, blogging helps you promote products and build trust with your audience.",
+          "duration_minutes": 10
+        },
+        {
+          "title": "How to Write Affiliate Marketing Content",
+          "content": "Focus on providing value to your audience. Use persuasive copy, images, and videos to showcase products in a compelling way.",
+          "duration_minutes": 15
+        }
+      ]
+    }
+  ],
+  "key_takeaways": [
+    "Understand the basics of affiliate marketing",
+    "Choose a profitable niche and find affiliate programs",
+    "Build a professional-looking website or blog",
+    "Create high-quality content that promotes products"
+  ],
+  "target_audience": "Beginners interested in online business and making money online",
+  "generated_at": "2026-05-23T20:42:07.700269",
+  "id": "20260523_204207_affiliate_marketing_for_beginners",
+  "created_at": "2026-05-23T20:42:07.700431"
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Stock and Crypto Investing Basics",
+  "subtitle": "Learn to grow your wealth with informed investment decisions",
+  "price": 29.99,
+  "free_lessons": [
+    {
+      "title": "Lesson 1.1: Understanding Your Risk Tolerance",
+      "content": "Identify your risk level and create a strategy to manage it. Learn how to assess your emotional state, time horizon, and investment goals...."
+    }
+  ],
+  "locked_lessons_count": 14,
+  "total_modules": 5,
+  "total_lessons": 15,
+  "blur_radius": 15,
+  "call_to_action": "Unlock full course for $29.99",
+  "generated_at": "2026-05-23T19:43:53.129937",
+  "course_id": "20260523_194345_stock_and_crypto_investing_basics",
+  "created_at": "2026-05-23T19:43:53.129996"
+}

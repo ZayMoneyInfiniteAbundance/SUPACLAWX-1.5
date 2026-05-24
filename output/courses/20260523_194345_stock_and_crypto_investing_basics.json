@@ -1,0 +1,119 @@
+{
+  "title": "Stock and Crypto Investing Basics",
+  "subtitle": "Learn to grow your wealth with informed investment decisions",
+  "topic": "Stock and crypto investing basics",
+  "difficulty": "beginner",
+  "price": 29.99,
+  "intro_video_script": "Are you tired of watching your money sit idle? Discover the world of stock and crypto investing, where the potential for growth is limitless. In this course, we'll take you by the hand and teach you the fundamentals to achieve financial freedom.",
+  "modules": [
+    {
+      "title": "Module 1: Setting Up for Success",
+      "lessons": [
+        {
+          "title": "Lesson 1.1: Understanding Your Risk Tolerance",
+          "content": "Identify your risk level and create a strategy to manage it. Learn how to assess your emotional state, time horizon, and investment goals.",
+          "duration_minutes": 10
+        },
+        {
+          "title": "Lesson 1.2: Investing in the Stock Market",
+          "content": "Get familiar with the basics of stock trading, including types of stocks, brokerages, and market analysis. Learn how to create a solid foundation for your investment portfolio.",
+          "duration_minutes": 15
+        },
+        {
+          "title": "Lesson 1.3: Investing in Cryptocurrencies",
+          "content": "Dive into the world of crypto investing, exploring popular coins, risks, and rewards. Understand the different types of cryptocurrency exchanges and wallets.",
+          "duration_minutes": 12
+        }
+      ]
+    },
+    {
+      "title": "Module 2: Building a Solid Portfolio",
+      "lessons": [
+        {
+          "title": "Lesson 2.1: Diversification Strategies",
+          "content": "Learn the importance of diversifying your portfolio across asset classes, sectors, and geographic regions. Discover how to balance risk and potential returns.",
+          "duration_minutes": 18
+        },
+        {
+          "title": "Lesson 2.2: Analyzing Financial Statements",
+          "content": "Master the art of reading financial statements, including income statements, balance sheets, and cash flow statements. Develop your skills in evaluating a company's performance and identifying potential investment opportunities.",
+          "duration_minutes": 20
+        },
+        {
+          "title": "Lesson 2.3: Setting Up a Trading Plan",
+          "content": "Create a solid trading plan, outlining your goals, risk tolerance, and market analysis strategies. Learn how to implement stop-loss orders, take-profit targets, and position sizing techniques.",
+          "duration_minutes": 15
+        }
+      ]
+    },
+    {
+      "title": "Module 3: Advanced Investing Strategies",
+      "lessons": [
+        {
+          "title": "Lesson 3.1: Options Trading for Income and Growth",
+          "content": "Explore the world of options trading, including types of options, strategies, and risk management techniques. Learn how to create a sustainable income stream through dividend investing.",
+          "duration_minutes": 25
+        },
+        {
+          "title": "Lesson 3.2: Technical Analysis for Crypto Investing",
+          "content": "Delve into the world of technical analysis, learning how to read charts, identify patterns, and make informed trading decisions. Understand the different types of chart patterns and indicators.",
+          "duration_minutes": 22
+        },
+        {
+          "title": "Lesson 3.3: Tax-Efficient Investing Strategies",
+          "content": "Discover tax-efficient investing strategies, including tax-loss harvesting, charitable giving, and retirement planning. Learn how to minimize taxes and maximize your investment returns.",
+          "duration_minutes": 18
+        }
+      ]
+    },
+    {
+      "title": "Module 4: Putting it All Together",
+      "lessons": [
+        {
+          "title": "Lesson 4.1: Reviewing Key Concepts",
+          "content": "Review the key concepts covered in the course, including risk management, portfolio diversification, and trading strategies.",
+          "duration_minutes": 10
+        },
+        {
+          "title": "Lesson 4.2: Creating an Investment Plan",
+          "content": "Create a personalized investment plan based on your goals, risk tolerance, and market analysis. Learn how to set realistic expectations and track your progress.",
+          "duration_minutes": 15
+        },
+        {
+          "title": "Lesson 4.3: Staying Disciplined and Motivated",
+          "content": "Develop strategies for staying disciplined and motivated in your investment journey. Learn how to overcome common obstacles, including fear and greed.",
+          "duration_minutes": 12
+        }
+      ]
+    },
+    {
+      "title": "Module 5: Putting it into Practice",
+      "lessons": [
+        {
+          "title": "Lesson 5.1: Practicing with a Demo Account",
+          "content": "Practice your new skills using a demo account, exploring different trading strategies and portfolio management techniques.",
+          "duration_minutes": 10
+        },
+        {
+          "title": "Lesson 5.2: Analyzing Real-World Market Scenarios",
+          "content": "Analyze real-world market scenarios, including news events, economic indicators, and technical analysis patterns. Develop your ability to make informed trading decisions.",
+          "duration_minutes": 15
+        },
+        {
+          "title": "Lesson 5.3: Reviewing Progress and Adjusting Strategy",
+          "content": "Review your progress, adjusting your strategy as needed. Learn how to refine your investment approach based on market conditions and performance.",
+          "duration_minutes": 12
+        }
+      ]
+    }
+  ],
+  "key_takeaways": [
+    "Understand risk tolerance and create a solid foundation for your investment portfolio",
+    "Master financial statement analysis and develop your skills in evaluating companies",
+    "Create a trading plan and implement stop-loss orders, take-profit targets, and position sizing techniques"
+  ],
+  "target_audience": "Beginner investors seeking to learn the fundamentals of stock and crypto investing",
+  "generated_at": "2026-05-23T19:43:45.854909",
+  "id": "20260523_194345_stock_and_crypto_investing_basics",
+  "created_at": "2026-05-23T19:43:45.855359"
+}

@@ -1,0 +1,79 @@
+{
+  "title": "Affiliate Marketing for Beginners",
+  "subtitle": "Start Your Online Journey to Passive Income",
+  "topic": "Affiliate marketing for beginners",
+  "difficulty": "beginner",
+  "price": 19.99,
+  "intro_video_script": "Are you tired of living paycheck to paycheck? Want to create a side income that's easy to start and scales with ease? Affiliate marketing is the answer! In this course, we'll show you how to get started with affiliate marketing, from choosing your niche to promoting products and earning commissions. By the end of this course, you'll have the skills and knowledge to start making money online.",
+  "modules": [
+    {
+      "title": "Module 1: Setting Up Your Affiliate Marketing Business",
+      "lessons": [
+        {
+          "title": "Choosing Your Niche",
+          "content": "Selecting a profitable niche that aligns with your interests and expertise. We'll show you how to research and validate your niche idea.",
+          "duration_minutes": 15
+        },
+        {
+          "title": "Getting Your First Affiliate Program",
+          "content": "Understanding the different types of affiliate programs, including pay-per-sale and pay-per-lead. We'll walk you through the process of joining your first program.",
+          "duration_minutes": 20
+        },
+        {
+          "title": "Setting Up Your Online Presence",
+          "content": "Creating a professional website or social media presence to promote your affiliate links. We'll cover the basics of website design and content creation.",
+          "duration_minutes": 25
+        }
+      ]
+    },
+    {
+      "title": "Module 2: Content Creation and Promotion",
+      "lessons": [
+        {
+          "title": "Creating Valuable Content",
+          "content": "Developing a content strategy that resonates with your audience. We'll show you how to create engaging blog posts, videos, and social media content.",
+          "duration_minutes": 30
+        },
+        {
+          "title": "Building an Email List",
+          "content": "Understanding the importance of email marketing in affiliate marketing. We'll walk you through the process of building an email list and creating effective campaigns.",
+          "duration_minutes": 25
+        },
+        {
+          "title": "Promoting Your Affiliate Links",
+          "content": "Learning how to promote your affiliate links effectively on social media, blogs, and other online platforms. We'll cover advanced strategies for driving traffic and conversions.",
+          "duration_minutes": 35
+        }
+      ]
+    },
+    {
+      "title": "Module 3: Tracking and Optimization",
+      "lessons": [
+        {
+          "title": "Understanding Your Analytics",
+          "content": "Learning how to track your website's performance using analytics tools. We'll show you how to set up and interpret key metrics.",
+          "duration_minutes": 20
+        },
+        {
+          "title": "A/B Testing for Affiliate Marketing",
+          "content": "Understanding the importance of A/B testing in affiliate marketing. We'll walk you through the process of setting up and analyzing tests.",
+          "duration_minutes": 25
+        },
+        {
+          "title": "Scaling Your Business",
+          "content": "Learning how to scale your affiliate marketing business by outsourcing tasks, managing multiple campaigns, and staying up-to-date with industry trends.",
+          "duration_minutes": 30
+        }
+      ]
+    }
+  ],
+  "key_takeaways": [
+    "Choose a profitable niche that aligns with your interests and expertise",
+    "Set up a professional online presence to promote your affiliate links",
+    "Create valuable content that resonates with your audience"
+  ],
+  "target_audience": "Beginner affiliate marketers, bloggers, and entrepreneurs looking to start an online business",
+  "generated_at": "2026-05-23T19:44:32.230817",
+  "id": "20260523_194432_affiliate_marketing_for_beginners",
+  "created_at": "2026-05-23T19:44:32.231007"
+}

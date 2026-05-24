@@ -1,0 +1,74 @@
+{
+  "title": "Social Media Growth Strategies",
+  "subtitle": "Unlock the Secrets to Growing Your Online Presence",
+  "topic": "Social media growth strategies",
+  "difficulty": "beginner|intermediate",
+  "price": 19.99,
+  "intro_video_script": "Are you tired of struggling to grow your social media following? In this course, we'll show you the most effective strategies to increase engagement, boost visibility, and drive real results for your business.",
+  "modules": [
+    {
+      "title": "Module 1: Setting Up for Success",
+      "lessons": [
+        {
+          "title": "Lesson 1.1: Defining Your Target Audience",
+          "content": "Identify your ideal customer to create content that resonates with them. Analyze your competitors and understand their strengths and weaknesses.",
+          "duration_minutes": 10
+        },
+        {
+          "title": "Lesson 1.2: Choosing the Right Social Media Platforms",
+          "content": "Select the platforms where your audience is most active. Consider your industry, target audience, and business goals.",
+          "duration_minutes": 15
+        }
+      ]
+    },
+    {
+      "title": "Module 2: Creating Engaging Content",
+      "lessons": [
+        {
+          "title": "Lesson 2.1: Crafting Compelling Captions",
+          "content": "Use attention-grabbing headlines, relevant keywords, and ask questions to increase engagement. Keep it concise, clear, and consistent.",
+          "duration_minutes": 8
+        },
+        {
+          "title": "Lesson 2.2: Visual Storytelling with High-Quality Images",
+          "content": "Invest in good camera equipment, edit your photos, and use high-quality images to showcase your products or services. Make sure they're consistent across all platforms.",
+          "duration_minutes": 12
+        },
+        {
+          "title": "Lesson 2.3: Leveraging User-Generated Content",
+          "content": "Encourage your followers to share their experiences with your brand. Repost and give shoutouts to create a sense of community.",
+          "duration_minutes": 10
+        }
+      ]
+    },
+    {
+      "title": "Module 3: Growing Your Audience",
+      "lessons": [
+        {
+          "title": "Lesson 3.1: Influencer Collaboration and Outreach",
+          "content": "Identify influencers in your niche, build relationships, and collaborate on content or promotions to tap into their audience.",
+          "duration_minutes": 15
+        },
+        {
+          "title": "Lesson 3.2: Running Social Media Contests and Giveaways",
+          "content": "Host a contest or giveaway to encourage engagement, increase visibility, and attract new followers.",
+          "duration_minutes": 12
+        },
+        {
+          "title": "Lesson 3.3: Utilizing Paid Social Media Advertising",
+          "content": "Use platforms like Facebook Ads, Instagram Ads, or LinkedIn Ads to reach a wider audience, increase brand awareness, and drive website traffic.",
+          "duration_minutes": 18
+        }
+      ]
+    }
+  ],
+  "key_takeaways": [
+    "Identify your target audience and create content that resonates with them",
+    "Choose the right social media platforms for your business",
+    "Use high-quality visuals to increase engagement and conversions"
+  ],
+  "target_audience": "small business owners, entrepreneurs, marketing professionals",
+  "generated_at": "2026-05-23T20:42:26.764384",
+  "id": "20260523_204226_social_media_growth_strategies",
+  "created_at": "2026-05-23T20:42:26.764511"
+}
