@@ -20,7 +20,7 @@ from pdf_preview import extract_first_page_as_png
 from config import (
     NICHES, COIN_PACKS, STRIPE_SECRET_KEY, STRIPE_PUBLISHABLE_KEY,
     STRIPE_WEBHOOK_SECRET, PUBLIC_URL, DOMAIN,
-    SMTP_HOST, GEMINI_API_KEY, PDF_PREVIEW_ENABLED,
+    SMTP_HOST, GEMINI_API_KEY, PDF_PREVIEW_ENABLED, SERVER_HOST, SERVER_PORT,
 )
 from email_sender import send_clearance_packet
 
@@ -195,7 +195,7 @@ class Handler(SimpleHTTPRequestHandler):
             return self.send_json(404, {"error": "Niche not found"})
 
         try:
-            pdf_bytes = generate_professional_pdf_bytes(niche)
+            pdf_bytes = generate_professional_pdf_bytes(niche, body.get("answers"))
             REQUEST_LOG[-1]["status"] = "ok"
             REQUEST_LOG[-1]["size"] = len(pdf_bytes)
 
@@ -434,8 +434,8 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    host = "0.0.0.0"
-    port = 8765
+    host = SERVER_HOST
+    port = SERVER_PORT
     server = HTTPServer((host, port), Handler)
     print(f"NemoClaw Intelligence Server: http://localhost:{port}")
     print(f"Static files: {OUTPUT_DIR}")

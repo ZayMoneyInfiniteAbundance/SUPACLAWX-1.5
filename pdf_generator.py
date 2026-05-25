@@ -276,8 +276,34 @@ def _add_section(pdf, section, section_num):
     pdf.ln(2)
 
 
-def generate_professional_pdf_bytes(niche):
-    raw = _call_gemini(niche['prompt'])
+def _build_tailored_prompt(niche, answers=None):
+    if not answers:
+        return niche['prompt']
+
+    exp = str(answers.get("exp", "")).strip()
+    goal = str(answers.get("goal", "")).strip()
+    time = str(answers.get("time", "")).strip()
+    context = []
+    if exp:
+        context.append(f"- Experience level: {exp}")
+    if goal:
+        context.append(f"- Primary goal: {goal}")
+    if time:
+        context.append(f"- Available time: {time}")
+
+    if not context:
+        return niche['prompt']
+
+    return (
+        f"{niche['prompt']}\n\n"
+        "Tailor this guide to the following user profile:\n"
+        + "\n".join(context)
+        + "\n\nMake the output feel custom to this operator. Prioritize the most relevant steps, tools, timelines, and warnings for their profile. Include a short personalized action plan near the beginning."
+    )
+
+
+def generate_professional_pdf_bytes(niche, answers=None):
+    raw = _call_gemini(_build_tailored_prompt(niche, answers))
     if not raw:
         raw = f"Content for {niche['title']} is being prepared. Please try again in a moment."
 
