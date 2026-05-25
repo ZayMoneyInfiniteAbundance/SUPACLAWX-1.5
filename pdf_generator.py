@@ -25,9 +25,17 @@ def _call_gemini(prompt: str) -> str:
                 return parts[0].get("text", "")
         return ""
     except urllib.error.HTTPError as e:
-        return f"[Service temporarily unavailable. Please try again in a few seconds. Error: {e.code}]"
+        detail = ""
+        try:
+            payload = json.loads(e.read().decode())
+            detail = payload.get("error", {}).get("message", "")
+        except Exception:
+            detail = ""
+        if detail:
+            raise RuntimeError(f"Gemini API error {e.code}: {detail}")
+        raise RuntimeError(f"Gemini API error {e.code}")
     except Exception as e:
-        return f"[Content generation error. Please try again.]"
+        raise RuntimeError(f"Content generation error: {e}")
 
 
 def _sanitize(text):
