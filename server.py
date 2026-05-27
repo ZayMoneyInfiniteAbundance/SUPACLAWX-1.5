@@ -74,6 +74,8 @@ class Handler(SimpleHTTPRequestHandler):
             return self.serve_admin_page()
         elif path == "/admin-api/stats":
             return self.serve_admin_stats()
+        elif path == "/health":
+            return self.serve_health()
         elif path == "/events":
             return self.serve_sse()
         elif path.startswith("/preview-pdf/"):
@@ -410,6 +412,19 @@ class Handler(SimpleHTTPRequestHandler):
             "stripe_enabled": STRIPE_AVAILABLE,
             "smtp_enabled": bool(SMTP_HOST),
             "gemini_configured": bool(GEMINI_API_KEY),
+        })
+
+    def serve_health(self):
+        self.send_json(200, {
+            "status": "ok",
+            "service": "nemoclaw",
+            "uptime_secs": int(time.time() - SERVER_START),
+            "systems": len(NICHES),
+            "stripe_enabled": STRIPE_AVAILABLE,
+            "smtp_enabled": bool(SMTP_HOST),
+            "gemini_configured": bool(GEMINI_API_KEY),
+            "fallback_generation": True,
+            "public_url": PUBLIC_URL,
         })
 
     # ── Helpers ──

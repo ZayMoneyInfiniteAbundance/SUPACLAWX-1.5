@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import urllib.request
 import urllib.error
@@ -6,6 +7,8 @@ from io import BytesIO
 from datetime import datetime
 from fpdf import FPDF
 from config import GEMINI_API_KEY, GEMINI_MODEL
+
+STRICT_GEMINI = os.getenv("STRICT_GEMINI", "").lower() in ("1", "true", "yes")
 
 
 def _call_gemini(prompt: str) -> str:
@@ -310,10 +313,77 @@ def _build_tailored_prompt(niche, answers=None):
     )
 
 
+def _answer(answers, key, default):
+    if not answers:
+        return default
+    value = str(answers.get(key, "")).strip()
+    return value or default
+
+
+def _local_blueprint(niche, answers=None, reason=""):
+    exp = _answer(answers, "exp", "operator")
+    goal = _answer(answers, "goal", "deploy the system")
+    time_budget = _answer(answers, "time", "a focused weekly sprint")
+    title = niche["title"]
+    description = niche.get("description", "Operational system")
+
+    warning = ""
+    if reason:
+        warning = (
+            "\n\n> Generated with the local fallback engine because the live AI provider was unavailable. "
+            "The blueprint is still tailored from the selected profile and system metadata."
+        )
+
+    return f"""# Personalized Deployment Brief
+This {title} packet is calibrated for a {exp} operator whose primary goal is to {goal} with {time_budget}. {description}
+{warning}
+
+# 72-Hour Action Plan
+- Day 1: define the target outcome, choose one measurable KPI, and remove every nonessential tool from the first deployment.
+- Day 2: assemble the minimum viable workflow: input source, processing step, output asset, delivery channel, and tracking event.
+- Day 3: run one live test, capture friction points, and document the exact handoff needed to repeat the system.
+
+# Automation Architecture
+- Intake layer: capture the user request, source data, or lead signal in a clean JSON shape with fields for profile, intent, budget, deadline, and contact channel.
+- Processing layer: route the request through one primary workflow and one fallback workflow so the system can continue when an external API is unavailable.
+- Output layer: package the result as a PDF, email, dashboard entry, or CRM record with a stable identifier and timestamp.
+- Monitoring layer: log success, error, latency, generated asset size, and user-selected calibration answers for future optimization.
+
+# Tools and Setup
+- Use environment variables for API keys, webhook secrets, SMTP credentials, payment credentials, and public URLs.
+- Keep generated assets in a predictable storage path and avoid mixing source code, credentials, and public output files.
+- Add a health endpoint that reports whether Stripe, SMTP, and the AI provider are configured without exposing secrets.
+- Store user state locally for speed, but send the selected deployment profile to the backend for every generated packet.
+
+# Conversion Workflow
+- Open with one clear deployment promise connected to the selected system outcome.
+- Ask only the calibration questions needed to shape the output: experience, goal, and available time.
+- Show progress states while the packet is being built and return exact server errors when the API cannot complete the job.
+- After download, recommend one related system that naturally completes the operator's stack.
+
+# Risk Controls
+- Treat every external provider as unreliable and design a fallback path for AI, payments, email, and media delivery.
+- Never hide API failures inside successful files; failed provider calls should return actionable errors or use an explicit fallback.
+- Validate niche IDs, pack IDs, emails, and webhook signatures before performing side effects.
+- Keep secrets out of source control and rotate any key that was committed, leaked, or rejected by the provider.
+
+# Next Iteration
+- Replace the current AI key with a clean provider key for richer generated copy.
+- Add persistent storage for deployments and captured leads so analytics survive server restarts.
+- Add a post-deployment checklist view so operators know what to do after downloading the packet.
+- Track conversion by system, calibration profile, and credit pack to identify the highest-value workflows.
+"""
+
+
 def generate_professional_pdf_bytes(niche, answers=None):
-    raw = _call_gemini(_build_tailored_prompt(niche, answers))
+    try:
+        raw = _call_gemini(_build_tailored_prompt(niche, answers))
+    except Exception as e:
+        if STRICT_GEMINI:
+            raise
+        raw = _local_blueprint(niche, answers, str(e))
     if not raw:
-        raw = f"Content for {niche['title']} is being prepared. Please try again in a moment."
+        raw = _local_blueprint(niche, answers)
 
     sections = _parse_sections(raw)
     if not sections:
